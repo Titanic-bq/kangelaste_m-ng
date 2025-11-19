@@ -122,7 +122,18 @@ function showAllHeroes() {
 //      renderHeroes(filtered);
 //      appendLog("Filtreerime rolli järgi: " + value);
 function filterByRole() {
-  // TODO
+  const value = roleSelect.value;
+  if (value === "all") {
+    showAllHeroes();
+    appendLog("Filtreerimine tühistatud – näitame kõiki kangelasi");
+    return;
+  }
+
+  const filtered = heroes.filter((hero) => hero.role === value);
+  renderHeroes(filtered);
+  appendLog(
+    "Filtreerime rolli järgi: " + value + " (kokku " + filtered.length + ")"
+  );
 }
 
 // boostTeam()
